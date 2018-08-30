@@ -48,6 +48,7 @@ window.MainApp = React.createClass({
 });
  
 // go and render the whole React component on to the div with id 'content'
+
 ReactDOM.render(
     <window.MainApp />,
     document.getElementById('content')
