@@ -35,14 +35,14 @@ $libro->fecha = date_format($fecha, 'Y-m-d');
 // update the libro
 if($libro->update()){
     echo '{';
-        echo '"message": "El libro fue actualizado."';
+        echo '"message": "true"';
     echo '}';
 }
  
 // if unable to update the libro, tell the user
 else{
     echo '{';
-        echo '"message": "Error al actualizar el libro."';
+        echo '"message": "false"';
     echo '}';
 }
 ?>

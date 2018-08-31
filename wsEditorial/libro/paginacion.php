@@ -54,7 +54,7 @@ if($num>0){
  
     // include paging
     $total_rows=$libro->count();
-    $page_url="{$home_url}libro/paginacion.php?";
+    $page_url="{$home_url}editorialTPuno/libro/paginacion.php?";
     $paging=$utilities->getPaging($page, $total_rows, $records_per_page, $page_url);
     $libros_arr["paging"]=$paging;
  

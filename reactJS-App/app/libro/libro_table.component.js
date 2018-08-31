@@ -16,21 +16,23 @@ window.LibroTable = React.createClass({
             !rows.length
                 ? <div className='alert alert-danger'>No hay libros.</div>
                 :
-                <table className='table table-bordered table-hover'>
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Descripción</th>
-                            <th>ISBN</th>
-                            <th>Autor</th>
-                            <th>Fecha</th>
-                            <th>Acción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {rows}
-                    </tbody>
-                </table>
+                <div className="table-responsive-lg">
+                    <table className='table table-bordered table-hover'>
+                        <thead className="thead-dark">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>ISBN</th>
+                                <th>Autor</th>
+                                <th>Fecha</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {rows}
+                        </tbody>
+                    </table>
+                </div>
         );
     }
 });

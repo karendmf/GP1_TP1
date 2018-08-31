@@ -1,6 +1,7 @@
 .boton{
     margin-bottom: 1em !important;
     margin-top: 1em;
+    margin-right: 0.5em;
 }
 .overflow-hidden{ overflow:hidden; }
 .page-header{

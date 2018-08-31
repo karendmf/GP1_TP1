@@ -45,7 +45,13 @@ window.UnLibroComponent = React.createClass({
                     Ver libros
                 </a>
                 <div className="row">
-                    <div className="col-md-2"></div>
+                    <div className="col-md-2">
+                    <div className="btn-group" role="group" aria-label="Basic example">
+                        <a href='#'
+                        onClick={() => this.props.changeAppMode('update', this.state.id)} role="button" className="btn btn-primary">Editar</a>
+                        <a href='#' onClick={() => this.props.changeAppMode('delete', this.state.id)} role="button" className="btn btn-danger">Eliminar</a>
+                    </div>
+                    </div>
                     <div className="col-md-8">
                         <div className="card">
                             <div className="card-header">
