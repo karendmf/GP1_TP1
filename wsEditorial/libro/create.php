@@ -16,14 +16,20 @@ $database = new Database();
 $db = $database->getConnection();
  
 $libro = new Libro($db);
- 
+
+$data = json_decode(file_get_contents("php://input"));
+
 if ( file_get_contents("php://input") === "" ){
     echo json_encode(
-        array("message" => "No se ingresaron datos")
+        array("message" => "false")
+    );
+}elseif ($data->nombre=='' || $data->isbn=='' || $data->autor=='' || $data->descripcion=='' || $data->fecha=='' ){
+    echo json_encode(
+        array("message" => "false")
     );
 }else{
     // get posted data
-    $data = json_decode(file_get_contents("php://input"));
+    
 
     // set libro property values
     $fecha= new DateTime($data->fecha);
@@ -39,14 +45,14 @@ if ( file_get_contents("php://input") === "" ){
 
     if($crear){
         echo json_encode(
-            array("message" => "Libro creado")
+            array("message" => "true")
         );
     }
     
     // if unable to create the libro, tell the user
     else{
         echo json_encode(
-            array("message" => "Error al crear un libro")
+            array("message" => "false")
         );
     }
 }

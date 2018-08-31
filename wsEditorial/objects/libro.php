@@ -20,7 +20,7 @@ class Libro{
     function read(){
  
         // select all query
-        $query = "SELECT * FROM $this->table_name";
+        $query = "SELECT * FROM $this->table_name ORDER BY id DESC";
     
         // prepare query statement
         $stmt = $this->conn->prepare($query);
@@ -48,7 +48,6 @@ class Libro{
         $this->isbn=htmlspecialchars(strip_tags($this->isbn));
         $this->descripcion=htmlspecialchars(strip_tags($this->descripcion));
         $this->autor=htmlspecialchars(strip_tags($this->autor));
-        $this->imagen=htmlspecialchars(strip_tags($this->imagen));
         $this->fecha=$this->fecha;
         // bind values
         $stmt->bindParam(":nombre", $this->nombre);
