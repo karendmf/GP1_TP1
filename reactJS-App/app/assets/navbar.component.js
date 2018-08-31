@@ -1,4 +1,4 @@
-
+// clase Menu (navbar)
 window.Menu = React.createClass({
   render: function(){
     return (

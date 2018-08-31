@@ -1,14 +1,12 @@
-// component that contains the functionalities that appear on top of
-// the products table: create product
+// Clase que muestra el boton de Cargar Libro
 window.TopActionsComponent = React.createClass({
     render: function(){
         return (
-            <div>
+            <div className="btnCrear">
                 <a href='#'
                     onClick={() => this.props.changeAppMode('create')}
-                    className='btn btn-primary'> Create product
+                    className='btn btn-outline-primary'> Cargar Libro
                 </a>
-        
             </div>
         );
     }

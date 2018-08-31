@@ -1,15 +1,15 @@
 
 window.MainApp = React.createClass({
  
-    // initial mode is 'read' mode
+    // indicamos el modo inicial 'read', que mostrara los libros
     getInitialState: function(){
         return {
             currentMode: 'read',
             libroId: null
         };
     },
- 
-    // used when use clicks something that changes the current mode
+
+    // funcion que sera usada cuando al hacer click en algo, cambie el estado actual
     changeAppMode: function(newMode, libroId){
         this.setState({currentMode: newMode});
             if(libroId !== undefined){
@@ -17,7 +17,7 @@ window.MainApp = React.createClass({
         }
     },
  
-    // render the component based on current or selected mode
+    // render del componente basado en el modo actual
     render: function(){
  
         var modeComponent =
@@ -47,8 +47,7 @@ window.MainApp = React.createClass({
     }
 });
  
-// go and render the whole React component on to the div with id 'content'
-
+// renderiza el componente en el div con id="contect"
 ReactDOM.render(
     <window.MainApp />,
     document.getElementById('content')

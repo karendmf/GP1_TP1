@@ -45,7 +45,6 @@ if($num>0){
             "descripcion" => html_entity_decode($descripcion),
             "isbn" => $isbn,
             "autor" => $autor,
-            "imagen" => $imagen,
             "fecha" => $fecha
         );
  

@@ -1,5 +1,4 @@
-// component that contains all the logic and other smaller components
-// that form the Read libro view
+// Clase ReadLibroComponent que muestra todos los libros de la db
 window.ReadLibroComponent = React.createClass({
     getInitialState: function() {
         return {
@@ -7,9 +6,8 @@ window.ReadLibroComponent = React.createClass({
         };
     },
  
-    // on mount, fetch all libro and stored them as this component's state
+    // 
     componentDidMount: function() {
- 
         this.serverRequest = $.get("http://localhost/editorialTPuno/wsEditorial/libro/read.php", function (libro) {
             this.setState({
                 libro: libro.records
@@ -17,14 +15,14 @@ window.ReadLibroComponent = React.createClass({
         }.bind(this));
     },
  
-    // on unmount, kill product fetching in case the request is still pending
+    //
     componentWillUnmount: function() {
         this.serverRequest.abort();
     },
  
-    // render component on the page
+    // render componente en la pagina
     render: function() {
-        // list of libro
+        // lista de libros
         var filteredlibro = this.state.libro;
         $('.page-header h1').text('Libros');
  

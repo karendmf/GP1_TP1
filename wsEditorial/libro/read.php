@@ -39,8 +39,7 @@ if($num>0){
             "descripcion" => html_entity_decode($descripcion),
             "isbn" => $isbn,
             "autor" => $autor,
-            "fecha" => $fecha,
-            "imagen" => $imagen
+            "fecha" => $fecha
         );
  
         array_push($libro_arr["records"], $unLibro);

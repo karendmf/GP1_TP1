@@ -30,7 +30,6 @@ if ($resp){
         "descripcion" => $libro->descripcion,
         "isbn" => $libro->isbn,
         "autor" => $libro->autor,
-        "imagen" => $libro->imagen,
         "fecha" => $libro->fecha
 
     

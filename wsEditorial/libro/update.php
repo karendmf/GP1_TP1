@@ -30,7 +30,6 @@ $libro->nombre = $data->nombre;
 $libro->isbn = $data->isbn;
 $libro->descripcion = $data->descripcion;
 $libro->autor = $data->autor;
-$libro->imagen = $data->imagen;
 $libro->fecha = date_format($fecha, 'Y-m-d');
  
 // update the libro
