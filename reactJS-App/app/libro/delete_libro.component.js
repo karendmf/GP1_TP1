@@ -29,11 +29,11 @@ window.DeleteLibroComponent = React.createClass({
                 <div className='col-md-3'></div>
                 <div className='col-md-6'>
                     <div className='card'>
-                        <div className='card-body text-center'>Are you sure?</div>
+                        <div className='card-body text-center'>¿Desea eliminar el libro?</div>
                         <div className='card-footer text-center'>
                             <div className='text-align-center'>
                                 <button onClick={this.onDelete}
-                                    className='btn btn-danger boton'>Yes</button>
+                                    className='btn btn-danger boton'>Si</button>
                                 <button onClick={() => this.props.changeAppMode('read')}
                                     className='btn btn-primary'>No</button>
                             </div>
