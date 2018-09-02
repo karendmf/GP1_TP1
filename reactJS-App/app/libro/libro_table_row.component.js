@@ -1,4 +1,4 @@
-// component that renders a single libro
+// componente que renderiza un solo libro
 window.LibroRow = React.createClass({
     render: function() {
     return (

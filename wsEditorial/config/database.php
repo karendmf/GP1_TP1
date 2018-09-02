@@ -1,14 +1,14 @@
 <?php
 class Database{
  
-    // specify your own database credentials
+    //Se especifican los detalles de la base de datos
     private $host = "localhost";
     private $db_name = "editorial";
     private $username = "root";
     private $password = "";
     public $conn;
  
-    // get the database connection
+    //Se establece la conexion a la base de datos. 
     public function getConnection(){
  
         $this->conn = null;

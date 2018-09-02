@@ -1,7 +1,6 @@
 window.UpdateLibroComponent = React.createClass({
     getInitialState: function() {
-        // Get this libro fields from the data attributes we set on the
-        // #content div, using jQuery
+        // Obtener los campos del Libro cuyos datos fueron seteados en #content div, usando jQuery
         return {
             id: 0,
             nombre: '',
@@ -28,7 +27,7 @@ window.UpdateLibroComponent = React.createClass({
         $('.page-header h1').text('Editar libro');
     },
      
-    // on unmount, kill categories fetching in case the request is still pending
+    // en componentWillUnmount, se eliminan las categorías que se obtienen en caso de que la solicitud esté pendiente
     componentWillUnmount: function() {
         this.serverRequest.abort();
     },
@@ -53,10 +52,10 @@ window.UpdateLibroComponent = React.createClass({
         this.setState({fecha: e.target.value});
     },
 
-    // handle save changes button clicked
+    // botón de guardar guardar cambios clickeado
     onSave: function(e){
-    
-        // data in the form
+        
+        // datos en el formulario
         var form_data={
             nombre: this.state.nombre,
             descripcion: this.state.descripcion,
@@ -66,7 +65,7 @@ window.UpdateLibroComponent = React.createClass({
             id: this.state.id,
         };
     
-        // submit form data to api
+        // enviar datos de formulario a api
         $.ajax({
             url: "http://localhost/editorialTPuno/wsEditorial/libro/update.php",
             type : "PUT",
@@ -76,7 +75,7 @@ window.UpdateLibroComponent = React.createClass({
                 this.setState({successUpdate: response['message']});
             }.bind(this),
             error: function(xhr, resp, text){
-                // show error to console
+                // mostrar error a la consola
                 console.log(xhr, resp, text);
             }
         });

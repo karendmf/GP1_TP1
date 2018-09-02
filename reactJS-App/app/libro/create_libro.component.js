@@ -37,7 +37,7 @@ window.CreateLibroComponent = React.createClass({
 
     onSave: function(e){
     
-        // data in the form
+        // datos del formulario
         var form_data={
             nombre: this.state.nombre,
             descripcion: this.state.descripcion,
@@ -46,7 +46,7 @@ window.CreateLibroComponent = React.createClass({
             fecha: this.state.fecha,
         };
     
-        // submit form data to api
+        // enviar datos de formulario a api
         $.ajax({
             url: "http://localhost/editorialTPuno/wsEditorial/libro/create.php",
             type : "POST",
@@ -54,10 +54,10 @@ window.CreateLibroComponent = React.createClass({
             data : JSON.stringify(form_data),
             success : function(response) {
     
-                // api message
+                // mensaje de api
                 this.setState({successCreation: response['message']});
     
-                // empty form
+                // form vacio
                 this.setState({nombre: ""});
                 this.setState({descripcion: ""});
                 this.setState({autor: ""});

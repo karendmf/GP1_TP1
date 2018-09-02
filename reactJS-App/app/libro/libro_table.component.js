@@ -1,4 +1,4 @@
-// component for the whole libros table
+// componente para toda la tabla de libros
 window.LibroTable = React.createClass({
     render: function() {
  

@@ -1,9 +1,10 @@
 <?php
 class Libro{
-    // database connection and table name
+    // Conexion a la base de datos y nombre de la tabla.
     private $conn;
     private $table_name = "libro";
 
+    //Parametros publicos del objeto.
     public $id;
     public $nombre;
     public $descripcion;
@@ -12,44 +13,49 @@ class Libro{
     public $autor;
     public $fecha;
 
+    // Constructor del objeto. 
     public function __construct($db){
         $this->conn = $db;
     }
 
-    // read products
+    // Obtener los libros de la base de datos
     function read(){
  
-        // select all query
+        // Selecciona todos los libros de la base de datos
         $query = "SELECT * FROM $this->table_name ORDER BY id DESC";
     
-        // prepare query statement
+        // prepara la declaración de consulta
         $stmt = $this->conn->prepare($query);
     
-        // execute query
+        // ejecutar la solicitud
         $stmt->execute();
     
         return $stmt;
     }
 
-    // create product
+    // Crear Libro en la base de datos. 
     function create(){
     
-        // query to insert record
+        // consulta para insertar registro
+        // usar nombre=:nombre es una forma alternativa de escritura. Se asignan los valores seteados en el objeto. 
         $query = "INSERT INTO
                     " . $this->table_name . "
                 SET
                     nombre=:nombre, autor=:autor, descripcion=:descripcion, fecha=:fecha, isbn=:isbn, imagen=:imagen";
     
-        // prepare query
+        // prepara la declaración de consulta
         $stmt = $this->conn->prepare($query);
     
-        // sanitize
+        // Se limpian los valores.
+        // htmlspecialchars -> Convierte caracteres especiales en entidades HTML
+        // strip_tags -> Retira las etiquetas HTML y PHP de un string
         $this->nombre=htmlspecialchars(strip_tags($this->nombre));
         $this->isbn=htmlspecialchars(strip_tags($this->isbn));
         $this->descripcion=htmlspecialchars(strip_tags($this->descripcion));
         $this->autor=htmlspecialchars(strip_tags($this->autor));
         $this->fecha=$this->fecha;
-        // bind values
+
+        // Se vinculan los valores con el nombre especificado
         $stmt->bindParam(":nombre", $this->nombre);
         $stmt->bindParam(":isbn", $this->isbn);
         $stmt->bindParam(":descripcion", $this->descripcion);
@@ -57,8 +63,9 @@ class Libro{
         $stmt->bindParam(":imagen", $this->imagen);
         $stmt->bindParam(":fecha", $this->fecha);
     
+        // ejecuta la solicitud
         $execute = $stmt->execute();
-        // execute query
+        // Lo retornado dependera del exito o fracaso de la solicitud. 
         if($execute){
             return true;
         }else{
@@ -70,7 +77,7 @@ class Libro{
     // ver un libro
     function readOne(){
     
-        // query to read single record
+        // Consulta para acceder a un solo libro.
         $query = "SELECT *
                 FROM
                     " . $this->table_name . " 
@@ -79,38 +86,39 @@ class Libro{
                 LIMIT
                     0,1";
     
-        // prepare query statement
+        // prepara la declaración de consulta
         $stmt = $this->conn->prepare( $query );
     
-        // bind id of product to be updated
+        // vincula el id del libro
         $stmt->bindParam(1, $this->id);
     
-        // execute query
+        // ejecuta la solicitud
         $stmt->execute();
     
-        // get retrieved row
+        // obtiene la fila recuperada
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         $num = $stmt->rowCount();
-
+        
+        // se verifica si se devolvio una fila. El retorno de la funcion dependera del exito o fallo de la consulta.  
         if ($num>0){
-            // set values to object properties
+            // se setean los parametros del objeto con los datos de las filas.
             $this->nombre = $row['nombre'];
             $this->isbn = $row['isbn'];
             $this->descripcion = $row['descripcion'];
             $this->autor = $row['autor'];
             $this->fecha = $row['fecha'];
             $this->imagen = $row['imagen'];
-
             return true;
         }
         else{
             return false;
         }
     }
-    // update the product
+    
+    //Actualizar producto. 
     function update(){
     
-        // update query
+        // consulta de actualización
         $query = "UPDATE
                     " . $this->table_name . "
                 SET
@@ -123,10 +131,12 @@ class Libro{
                 WHERE
                     id = :id";
     
-        // prepare query statement
+        // prepara la declaración de consulta
         $stmt = $this->conn->prepare($query);
     
-        // sanitize
+        // Se limpian los valores.
+        // htmlspecialchars -> Convierte caracteres especiales en entidades HTML
+        // strip_tags -> Retira las etiquetas HTML y PHP de un string
         $this->nombre=htmlspecialchars(strip_tags($this->nombre));
         $this->isbn=htmlspecialchars(strip_tags($this->isbn));
         $this->descripcion=htmlspecialchars(strip_tags($this->descripcion));
@@ -135,7 +145,7 @@ class Libro{
         $this->imagen=htmlspecialchars(strip_tags($this->imagen));
         $this->id=htmlspecialchars(strip_tags($this->id));
     
-        // bind new values
+        // Se vinculan los valores con el nombre especificado
         $stmt->bindParam(':nombre', $this->nombre);
         $stmt->bindParam(':isbn', $this->isbn);
         $stmt->bindParam(':descripcion', $this->descripcion);
@@ -144,29 +154,34 @@ class Libro{
         $stmt->bindParam(':imagen', $this->imagen);
         $stmt->bindParam(':id', $this->id);
     
-        // execute the query
+        // ejecuta la solicitud
+        // Lo retornado dependera del exito o fracaso de la solicitud.
         if($stmt->execute()){
             return true;
         }
     
         return false;
     }
-    // delete the product
+    
+    // Borrar un Libro. 
     function delete(){
     
-        // delete query
+        // consulta de borrado
         $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
     
-        // prepare query
+        // preparar consulta
         $stmt = $this->conn->prepare($query);
     
-        // sanitize
+        // Se limpian los valores.
+        // htmlspecialchars -> Convierte caracteres especiales en entidades HTML
+        // strip_tags -> Retira las etiquetas HTML y PHP de un string
         $this->id=htmlspecialchars(strip_tags($this->id));
     
-        // bind id of record to delete
+        // Se vincula el id del Libro que se desea borrar
         $stmt->bindParam(1, $this->id);
     
-        // execute query
+        // ejecuta la solicitud
+        // Lo retornado dependera del exito o fracaso de la solicitud.
         if($stmt->execute()){
             return true;
         }

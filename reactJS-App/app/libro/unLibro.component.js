@@ -1,7 +1,6 @@
 window.UnLibroComponent = React.createClass({
     getInitialState: function() {
-        // Get this libro fields from the data attributes we set on the
-        // #content div, using jQuery
+        // Obtener los campos del Libro cuyos datos fueron seteados en #content div, usando jQuery
         return {
             id: 0,
             nombre: '',
@@ -12,7 +11,7 @@ window.UnLibroComponent = React.createClass({
         };
     },
      
-    // on mount, read libro data and them as this component's state
+    // en componentDidMount, lee los datos del libro como el estado de este componente
     componentDidMount: function(){
      
         var libroId = this.props.libroId;
@@ -30,7 +29,7 @@ window.UnLibroComponent = React.createClass({
         $('.page-header h1').text('Ver libro');
     },
      
-    // on unmount, kill categories fetching in case the request is still pending
+    // componentWillUnmount, mata categorías en caso de que la solicitud esté pendiente
     componentWillUnmount: function() {
         this.serverRequestProd.abort();
     },
