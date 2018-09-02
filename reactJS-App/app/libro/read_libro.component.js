@@ -6,7 +6,7 @@ window.ReadLibroComponent = React.createClass({
         };
     },
  
-    // 
+    // Cuando el componente se monta, solicita los datos
     componentDidMount: function() {
         this.serverRequest = $.get("http://localhost/editorialTPuno/wsEditorial/libro/read.php", function (libro) {
             this.setState({
@@ -15,7 +15,7 @@ window.ReadLibroComponent = React.createClass({
         }.bind(this));
     },
  
-    //
+    // Antes de desmontar el componente, se termina la solicitud al servidor
     componentWillUnmount: function() {
         this.serverRequest.abort();
     },

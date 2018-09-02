@@ -1,13 +1,14 @@
+//componente que elimina un libro
 window.DeleteLibroComponent = React.createClass({
     componentDidMount: function(){
         $('.page-header h1').text('Eliminar libro');
     },
     onDelete: function(e){
  
-        // product to delete
+        // id del libro a eliminar
         var libroId = this.props.libroId;
      
-        // submit form data to api
+        // envía los datos a la api
         $.ajax({
             url: "http://localhost/editorialTPuno/wsEditorial/libro/delete.php",
             type : "DELETE",
@@ -22,6 +23,7 @@ window.DeleteLibroComponent = React.createClass({
             }
         });
     },
+    // visualización
     render: function(){
  
         return (

@@ -27,7 +27,7 @@ window.UpdateLibroComponent = React.createClass({
         $('.page-header h1').text('Editar libro');
     },
      
-    // en componentWillUnmount, se eliminan las categorías que se obtienen en caso de que la solicitud esté pendiente
+    // Antes de desmontar el componente, se termina la solicitud al servidor
     componentWillUnmount: function() {
         this.serverRequest.abort();
     },
@@ -52,7 +52,7 @@ window.UpdateLibroComponent = React.createClass({
         this.setState({fecha: e.target.value});
     },
 
-    // botón de guardar guardar cambios clickeado
+    // botón de guardar cambios clickeado
     onSave: function(e){
         
         // datos en el formulario

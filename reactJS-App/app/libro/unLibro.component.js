@@ -29,7 +29,7 @@ window.UnLibroComponent = React.createClass({
         $('.page-header h1').text('Ver libro');
     },
      
-    // componentWillUnmount, mata categorías en caso de que la solicitud esté pendiente
+    // Antes de desmontar el componente, se termina la solicitud al servidor
     componentWillUnmount: function() {
         this.serverRequestProd.abort();
     },
