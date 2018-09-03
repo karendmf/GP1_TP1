@@ -48,7 +48,7 @@ window.CreateLibroComponent = React.createClass({
     
         // enviar datos de formulario a api
         $.ajax({
-            url: "http://localhost/editorialTPuno/wsEditorial/libro/create.php",
+            url: "http://localhost/GP1_TP1/libro_WebService/libro/create.php",
             type : "POST",
             contentType : 'application/json',
             data : JSON.stringify(form_data),
@@ -89,7 +89,7 @@ window.CreateLibroComponent = React.createClass({
             {
                 this.state.successCreation == "false" ?
                     <div className='alert alert-danger'>
-                        Error al registrar libro, intentelo otra vez.
+                        Error al registrar libro, inténtelo otra vez.
                     </div>
                 : null
             }

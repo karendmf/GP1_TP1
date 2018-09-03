@@ -16,7 +16,7 @@ window.UnLibroComponent = React.createClass({
      
         var libroId = this.props.libroId;
      
-        this.serverRequestProd = $.get("http://localhost/editorialTPuno/wsEditorial/libro/unLibro.php?id=" + libroId,
+        this.serverRequestProd = $.get("http://localhost/GP1_TP1/libro_WebService/libro/unLibro.php?id=" + libroId,
             function (libro) {
                 this.setState({autor: libro.autor});
                 this.setState({id: libro.id});

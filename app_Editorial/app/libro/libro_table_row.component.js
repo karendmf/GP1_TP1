@@ -4,7 +4,7 @@ window.LibroRow = React.createClass({
     return (
         <tr>
             <td>{this.props.libro.nombre}</td>
-            <td>{this.props.libro.descripcion}</td>
+            {/* <td>{this.props.libro.descripcion}</td> */}
             <td>{this.props.libro.autor}</td>
             <td>{this.props.libro.fecha}</td>
             <td>{this.props.libro.isbn}</td>

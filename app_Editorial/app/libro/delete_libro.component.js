@@ -10,7 +10,7 @@ window.DeleteLibroComponent = React.createClass({
      
         // envía los datos a la api
         $.ajax({
-            url: "http://localhost/editorialTPuno/wsEditorial/libro/delete.php",
+            url: "http://localhost/GP1_TP1/libro_WebService/libro/delete.php",
             type : "DELETE",
             contentType : 'application/json',
             data : JSON.stringify({'id' : libroId}),

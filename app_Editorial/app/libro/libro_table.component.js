@@ -21,7 +21,7 @@ window.LibroTable = React.createClass({
                         <thead>
                             <tr>
                                 <th>Nombre</th>
-                                <th>Descripción</th>
+                                {/* <th>Descripción</th> */}
                                 <th>Autor</th>
                                 <th>Publicación</th>
                                 <th>ISBN</th>
