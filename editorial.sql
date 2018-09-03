@@ -32,9 +32,9 @@ CREATE TABLE `libro` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `autor` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `descripcion` text COLLATE utf8_unicode_ci, NOT NULL
+  `descripcion` text COLLATE utf8_unicode_ci NOT NULL,
   `fecha` date NOT NULL,
-  `isbn` int(15) NOT NULL,
+  `isbn` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --

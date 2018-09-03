@@ -67,7 +67,7 @@ window.UpdateLibroComponent = React.createClass({
     
         // enviar datos de formulario a api
         $.ajax({
-            url: "http://localhost/editorialTPuno/wsEditorial/libro/update.php",
+            url: "http://localhost/GP1_TP1/libro_WebService/libro/update.php",
             type : "PUT",
             contentType : 'application/json',
             data : JSON.stringify(form_data),
