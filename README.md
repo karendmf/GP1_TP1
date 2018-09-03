@@ -1,5 +1,5 @@
 # Cliente y Servidor RESTful con React JS
-En el siguiente proyecto, cuenta con un web service desarrollado en PHP y un cliente que consume dicho servicio, desarrollado con React.
+El siguiente proyecto, cuenta con un web service desarrollado en PHP y un cliente que consume dicho servicio, desarrollado con React.
 
 
 ## Grupo 1
