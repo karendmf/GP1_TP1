@@ -143,7 +143,7 @@ window.CreateLibroComponent = React.createClass({
                             required
                             ></input>
                         </div>
-                        <button className='btn btn-primary boton' onClick={this.onSave}>Guardar</button>
+                        <button className='btn boton botonSave' onClick={this.onSave}>Guardar</button>
                     </form>
                 </div>
                 <div className="col-md-3"></div>

@@ -9,7 +9,6 @@ class Libro{
     public $nombre;
     public $descripcion;
     public $isbn;
-    public $imagen;
     public $autor;
     public $fecha;
 
@@ -41,7 +40,7 @@ class Libro{
         $query = "INSERT INTO
                     " . $this->table_name . "
                 SET
-                    nombre=:nombre, autor=:autor, descripcion=:descripcion, fecha=:fecha, isbn=:isbn, imagen=:imagen";
+                    nombre=:nombre, autor=:autor, descripcion=:descripcion, fecha=:fecha, isbn=:isbn";
     
         // prepara la declaración de consulta
         $stmt = $this->conn->prepare($query);
@@ -60,7 +59,6 @@ class Libro{
         $stmt->bindParam(":isbn", $this->isbn);
         $stmt->bindParam(":descripcion", $this->descripcion);
         $stmt->bindParam(":autor", $this->autor);
-        $stmt->bindParam(":imagen", $this->imagen);
         $stmt->bindParam(":fecha", $this->fecha);
     
         // ejecuta la solicitud
@@ -107,7 +105,6 @@ class Libro{
             $this->descripcion = $row['descripcion'];
             $this->autor = $row['autor'];
             $this->fecha = $row['fecha'];
-            $this->imagen = $row['imagen'];
             return true;
         }
         else{
@@ -126,7 +123,6 @@ class Libro{
                     isbn = :isbn,
                     descripcion = :descripcion,
                     autor = :autor,
-                    imagen = :imagen,
                     fecha = :fecha
                 WHERE
                     id = :id";
@@ -142,7 +138,6 @@ class Libro{
         $this->descripcion=htmlspecialchars(strip_tags($this->descripcion));
         $this->autor=htmlspecialchars(strip_tags($this->autor));
         $this->fecha=htmlspecialchars(strip_tags($this->fecha));
-        $this->imagen=htmlspecialchars(strip_tags($this->imagen));
         $this->id=htmlspecialchars(strip_tags($this->id));
     
         // Se vinculan los valores con el nombre especificado
@@ -151,7 +146,6 @@ class Libro{
         $stmt->bindParam(':descripcion', $this->descripcion);
         $stmt->bindParam(':autor', $this->autor);
         $stmt->bindParam(':fecha', $this->fecha);
-        $stmt->bindParam(':imagen', $this->imagen);
         $stmt->bindParam(':id', $this->id);
     
         // ejecuta la solicitud

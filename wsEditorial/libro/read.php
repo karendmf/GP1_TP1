@@ -29,7 +29,7 @@ if($num>0){
 
         // Importa variables desde un array a la tabla de símbolos actual.
         extract($row);
- 
+        $date= new DateTime($fecha);
         // Se cargan los valores en el arreglo.
         $unLibro=array(
             "id" => $id,
@@ -37,7 +37,7 @@ if($num>0){
             "descripcion" => html_entity_decode($descripcion),
             "isbn" => $isbn,
             "autor" => $autor,
-            "fecha" => $fecha
+            "fecha" => date_format($date, 'd-m-Y')
         );
  
         array_push($libro_arr["records"], $unLibro);

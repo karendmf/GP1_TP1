@@ -18,13 +18,13 @@ window.LibroTable = React.createClass({
                 :
                 <div className="table-responsive-lg">
                     <table className='table table-bordered table-hover'>
-                        <thead className="thead-dark">
+                        <thead>
                             <tr>
                                 <th>Nombre</th>
                                 <th>Descripción</th>
-                                <th>ISBN</th>
                                 <th>Autor</th>
-                                <th>Fecha</th>
+                                <th>Publicación</th>
+                                <th>ISBN</th>
                                 <th>Acción</th>
                             </tr>
                         </thead>

@@ -8,3 +8,36 @@
     margin-bottom: 1em;
     margin-top: 1em;
 }
+.navbar{
+    background-color: rgb(63, 63, 63);
+    
+}
+.navbar .navbar-brand,
+.navbar .nav-link{
+    color: rgb(224, 224, 224) !important;
+}
+.btn-outline-primary{
+    border-color: rgb(63, 63, 63) !important;
+    color: rgb(63, 63, 63) !important;
+}
+.btn-outline-primary:hover{
+    background-color: rgb(63, 63, 63) !important;
+    color: rgb(96, 214, 243) !important;
+}
+.imagen{
+    width: 40px !important;
+    margin-left: 0.5em; 
+}
+.table thead{
+    background-color: rgb(63, 63, 63) !important;
+    color: rgb(224, 224, 224) !important;
+}
+.botonSave{
+    background-color: rgb(63, 63, 63) !important;
+    color: rgb(96, 214, 243) !important;
+}
+.botonSave:hover{
+    background-color: transparent !important;
+    border-color: rgb(63, 63, 63) !important;
+    color: rgb(63, 63, 63) !important;
+}
